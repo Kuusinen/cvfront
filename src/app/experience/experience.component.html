@@ -1,0 +1,57 @@
+<div class="title">
+    <h1 class="text">Expériences</h1>
+    <button *ngIf="log" class="nav-btn">
+        <mat-icon fontIcon="add" class="title-icon" (click)="addEducation()"></mat-icon>
+    </button>
+</div>
+<div *ngFor="let section of allSectionXp" class="col-auto">
+    <div class="education-content bg-image">
+        <div class="row">
+            <div class="left-content-center education-title">
+                <h3 class="text">{{section.title}}</h3>
+                <p class="text">{{section.body}}</p>
+            </div>
+            <div class="xp-img-size">
+                <img [src]="loadImage(section.imageName)" class="d-none d-md-block education-img" />
+                <div class="mask d-flex justify-content-center align-items-center gradient-custom mask-text">
+                    <p class="date-text">{{section.date}}</p>
+                    <div *ngIf="log" class="edit-icon">
+                        <button class="nav-btn edit-button">
+                            <mat-icon fontIcon="edit" class="rounded-circle edit-icon-color title-icon"
+                                (click)="putEditSection(section)"></mat-icon>
+                        </button>
+                        <button class="nav-btn edit-button">
+                            <mat-icon fontIcon="delete" class="rounded-circle edit-icon-color title-icon"
+                                (click)="removeSection(section)"></mat-icon>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="education-content bg-image" *ngIf="newXp">
+    <div class="row">
+        <div class="education-title">
+            <input class="text input-title" placeholder="Poste occupé" [(ngModel)]="newSection.title" />
+            <br />
+            <textarea class="text input-area" placeholder="Description du poste et des techniques exploitées"
+                [(ngModel)]="newSection.body"></textarea>
+        </div>
+        <div class="xp-img-size">
+            <div #backgroundImage
+                class="image-upload d-flex justify-content-center align-items-center xp-input-img-size">
+                <label for="file-input">
+                    <mat-icon fontIcon="add_photo_alternate" class="education-img" />
+                </label>
+                <input id="file-input" type="file" (change)="importImage($event)" />
+            </div>
+
+            <div>
+                <input class="text" placeholder="date" [(ngModel)]="newSection.date" />
+            </div>
+            <button (click)="saveSection()">{{updateOrSave}}</button>
+            <button (click)="cancel()">{{cancelOrDelete}}</button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,136 @@
+
+.text {
+    color: rgb(222, 218, 214);
+}
+
+.nav-btn {
+    background-color: rgba(0, 0, 0, 0.0);
+    border: 0px;
+}   
+
+.icon {
+    color: rgb(33, 37, 41);
+}
+
+.input {
+    background-color: rgb(222, 218, 214);
+    color: rgb(33, 37, 41);
+}
+
+.offset {
+    top: 84px;
+    position: relative;
+    padding: 10px;
+}
+
+.title {
+    display: flex;
+}
+
+.title-icon {
+    color: rgb(222, 218, 214);
+}
+
+.gradient-custom {
+    /* fallback for old browsers */
+    background: rgba(33, 37, 41, 1.0);
+
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: -webkit-linear-gradient(90deg,
+    rgba(33, 37, 41, 1.0),
+    rgba(33, 37, 41, 0.5) 100%);
+
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: linear-gradient(90deg,
+            rgba(33, 37, 41, 1.0),
+            rgba(33, 37, 41, 0.5) 100%);
+}
+
+.education-title {
+    min-height: 50%;
+    width: 50%;
+    display: block;
+}
+
+div>.education-img {
+    display: block;
+    height: 350px;
+    width: auto;
+}
+
+.education-content {
+    height: 350px;
+    width: 100%;
+}
+
+.mask-text {
+    opacity: 0.0;
+    transition: 0.5s;
+}
+
+.mask-text:hover {
+    opacity: 1.0;
+}
+
+.date-text {
+    color: rgb(222, 218, 214);
+    font-size: 25px;
+}
+
+input {
+    background-color: rgb(33, 37, 41);
+    border: none;
+}
+
+input:focus {
+    outline: none;
+}
+
+.input-area {
+    height: 200px;
+    width: 50%;
+    background-color: rgb(33, 37, 41);
+    border: none;
+    resize:none;
+}
+
+.input-area:focus {
+    outline: none;
+}
+
+.image-upload>input {
+    display: none;
+}
+
+.image-upload {
+    height: 250px;
+    width: auto;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+.edit-icon {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    display: none;
+}
+
+.education-content:hover .edit-icon {
+    display: flex;
+}
+
+.edit-icon-color {
+    font-size: 16px;
+}
+
+.edit-button{
+    width: 35px;
+    height: 35px;
+}
+
+.xp-img-size{
+    width: 50%;
+    height: 100%;
+}

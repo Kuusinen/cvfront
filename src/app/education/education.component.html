@@ -1,0 +1,58 @@
+<div class="title">
+    <h1 class="text">Formations</h1>
+    <button *ngIf="log" class="nav-btn">
+        <mat-icon fontIcon="add" class="title-icon" (click)="addEducation()"></mat-icon>
+    </button>
+</div>
+<div class="row">
+    <div *ngFor="let section of allEducationSection" class="col-auto">
+        <div class="education-content bg-image">
+            <div>
+                <div class="row left-content-center h-100 education-title">
+                    <h3 class="text">{{section.title}}</h3>
+                    <p class="text">{{section.body}}</p>
+                </div>
+                <div class="">
+                    <img [src]="loadImage(section.imageName)" class="education-img" />
+                    <div class="mask d-flex justify-content-center align-items-center gradient-custom mask-text">
+                        <p class="date-text">{{section.date}}</p>
+                        <div *ngIf="log" class="edit-icon">
+                            <button class="nav-btn edit-button">
+                                <mat-icon fontIcon="edit" class="rounded-circle edit-icon-color title-icon"
+                                    (click)="putEditSection(section)"></mat-icon>
+                            </button>
+                            <button class="nav-btn edit-button">
+                                <mat-icon fontIcon="delete" class="rounded-circle edit-icon-color title-icon"
+                                    (click)="removeSection(section)"></mat-icon>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="education-content bg-image" *ngIf="newEducation">
+        <div>
+            <div class="row left-content-center h-100 education-title">
+                <input class="text" placeholder="Diplôme/Formation" [(ngModel)]="newSection.title" />
+                <input class="text input-area" type="textarea" placeholder="Description du diplôme ou de la formation"
+                    [(ngModel)]="newSection.body" />
+            </div>
+            <div>
+                <div #backgroundImage class="image-upload d-flex justify-content-center align-items-center">
+                    <label for="file-input">
+                        <mat-icon fontIcon="add_photo_alternate" class="education-img" />
+                    </label>
+                    <input id="file-input" type="file" (change)="importImage($event)" />
+                </div>
+
+                <div>
+                    <input class="text" placeholder="date" [(ngModel)]="newSection.date" />
+                </div>
+                <button (click)="saveSection()">{{updateOrSave}}</button>
+                <button (click)="cancel()">{{cancelOrDelete}}</button>
+            </div>
+        </div>
+    </div>
+</div>

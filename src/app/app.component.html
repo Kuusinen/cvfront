@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+  <meta charset="utf_8">
+  <title>Rogatien de La Brunetière</title>
+</head>
+
+<body id="main" class="bg-color">
+  <nav class="navbar navbar-expand-xl fixed-top navbar-collapse-background">
+    <div class="container-fluid">
+      <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar"
+        aria-expanded="false" aria-label="Toggle navigation" aria-controls="navbar"
+        (click)="isCollapsed = ! isCollapsed">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="#navbar" [(ngbCollapse)]="isCollapsed">
+        <ul class="nav navbar-nav">
+          <li>
+            <a class="menu-item" href="#main">Rogatien de La Brunetière</a>
+          </li>
+          <li>
+            <a class="menu-item" href="#education">Formations</a>
+          </li>
+          <li>
+            <a class="menu-item" href="#experience">Expériences</a>
+          </li>
+          <li>
+            <a class="menu-item" href="">Contact</a>
+          </li>
+          <li>
+            <button class="nav-btn menu-item">
+              <mat-icon class="icon btn-icon" fontIcon="login" (click)="openPopupConnection()" *ngIf="!log" />
+              <mat-icon class="icon btn-icon" fontIcon="logout" (click)="loggedOut()" *ngIf="log" />
+            </button>
+          </li>
+        </ul>
+      </div>
+      <img #logo src="../assets/img/logo.png" width="112" height="112" class="brand" />
+    </div>
+  </nav>
+
+  <div class="popup bg-color" *ngIf="popup">
+    <h3 class="popup-text" style="text-align: center;">Connexion</h3>
+    <p class="popup-text" style="text-align: center;">Veuillez entrer vos identifiants.</p>
+    <p class="popup-text">
+      <label>identifiant :</label>
+      <input #id class="input" placeholder="identifiant" type="text" [(ngModel)]="user.name" />
+    </p>
+    <p class="popup-text">
+      <label>mot de passe :</label>
+      <input #password class="input" type="password" placeholder="mot de passe" [(ngModel)]="user.password" />
+    </p>
+    <button class="popup-text nav-btn" (click)="loggedin()"><span class="popup-btn">connexion</span></button>
+    <button class="popup-text nav-btn" (click)="closePopupConnection()"><span class="popup-btn">annuler</span></button>
+  </div>
+
+  <div class="container bg-color bg-image">
+    <img src="../assets/img/sc.jpg" class="w-100 sc" />
+    <div class="mask">
+      <div class="d-flex justify-content-center align-items-center h-100">
+        <h1 class="main-title">Rogatien de La Brunetière</h1>
+      </div>
+    </div>
+  </div>
+
+  <div class="bg-color offset">
+    <div #education id="education">
+      <app-education [log]="log"></app-education>
+    </div>
+
+    <div #experience id="experience">
+      <app-experience [log]="log"></app-experience>
+    </div>
+    <div>
+      <!-- contact -->
+    </div>
+    <app-footer></app-footer>
+  </div>
+</body>
+
+</html>
